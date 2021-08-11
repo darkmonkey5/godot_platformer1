@@ -32,7 +32,7 @@ motion_scale = Vector2( 0.5, 1 )
 motion_mirroring = Vector2( 1024, 0 )
 
 [node name="backgroundColorGrass" type="Sprite" parent="parallax_background/parallax_layer"]
-position = Vector2( 508.068, -236.147 )
+position = Vector2( 528.833, -611.809 )
 scale = Vector2( 1.78902, 1.80746 )
 texture = ExtResource( 10 )
 
@@ -45,6 +45,7 @@ __meta__ = {
 }
 
 [node name="alien_pink" parent="player" instance=ExtResource( 2 )]
+frame = 1
 playing = true
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="player"]
@@ -100,14 +101,16 @@ position = Vector2( 2404.7, -1715.75 )
 position = Vector2( 868.058, -63.1667 )
 
 [node name="enemy2" parent="enemies" instance=ExtResource( 6 )]
-position = Vector2( 1874.77, -50.6942 )
+position = Vector2( 1874.77, -52.476 )
 direction = Vector2( 0, 0 )
 
 [node name="enemy3" parent="enemies" instance=ExtResource( 6 )]
 position = Vector2( 2407.53, -93.4572 )
+direction = Vector2( 0, 0 )
 
 [node name="enemy4" parent="enemies" instance=ExtResource( 6 )]
 position = Vector2( 1856.96, 163.122 )
+direction = Vector2( -3, 0 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 8 )
@@ -130,9 +133,8 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "0"
 
 [node name="left_button" type="TouchScreenButton" parent="HUD"]
-visible = false
 self_modulate = Color( 1, 1, 1, 0.54902 )
-position = Vector2( 150, 500 )
+position = Vector2( 2.75558, 396.174 )
 shape = SubResource( 6 )
 passby_press = true
 visibility_mode = 1
@@ -141,26 +143,31 @@ __meta__ = {
 }
 
 [node name="color_rect" type="ColorRect" parent="HUD/left_button"]
-margin_left = -150.0
-margin_top = -100.0
-margin_right = 150.0
-margin_bottom = 100.0
+margin_left = 1.0199
+margin_top = 1.93835
+margin_right = 301.02
+margin_bottom = 201.938
 color = Color( 0, 0, 1, 0.486275 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="label2" type="Label" parent="HUD/left_button"]
-margin_left = -50.0
-margin_top = -15.5
-margin_right = 85.0
-margin_bottom = 20.5
+margin_left = 78.3669
+margin_top = 69.4486
+margin_right = 213.367
+margin_bottom = 105.449
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "LEFT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="right_button" type="TouchScreenButton" parent="HUD"]
-visible = false
 self_modulate = Color( 1, 1, 1, 0.54902 )
-position = Vector2( 480, 500 )
+position = Vector2( 370.511, 399.949 )
 shape = SubResource( 6 )
 passby_press = true
 visibility_mode = 1
@@ -169,26 +176,28 @@ __meta__ = {
 }
 
 [node name="color_rect" type="ColorRect" parent="HUD/right_button"]
-margin_left = -150.0
-margin_top = -100.0
-margin_right = 150.0
-margin_bottom = 100.0
+margin_left = -10.3065
+margin_top = 3.82617
+margin_right = 289.693
+margin_bottom = 203.826
 color = Color( 0, 0, 1, 0.486275 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="label2" type="Label" parent="HUD/right_button"]
-margin_left = -50.0
-margin_top = -15.5
-margin_right = 85.0
-margin_bottom = 20.5
+margin_left = 65.1527
+margin_top = 82.6628
+margin_right = 200.153
+margin_bottom = 118.663
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "RIGHT"
 
 [node name="jump_button" type="TouchScreenButton" parent="HUD"]
-visible = false
 self_modulate = Color( 1, 1, 1, 0.54902 )
-position = Vector2( 870, 500 )
+position = Vector2( 724.643, 399.949 )
 shape = SubResource( 6 )
 passby_press = true
 visibility_mode = 1
@@ -197,17 +206,17 @@ __meta__ = {
 }
 
 [node name="color_rect" type="ColorRect" parent="HUD/jump_button"]
-margin_left = -150.0
-margin_top = -100.0
-margin_right = 150.0
-margin_bottom = 100.0
+margin_left = 1.0199
+margin_top = 1.93857
+margin_right = 301.02
+margin_bottom = 201.939
 color = Color( 0, 0, 1, 0.486275 )
 
 [node name="label2" type="Label" parent="HUD/jump_button"]
-margin_left = -50.0
-margin_top = -15.5
-margin_right = 85.0
-margin_bottom = 20.5
+margin_left = 85.9178
+margin_top = 86.4385
+margin_right = 220.918
+margin_bottom = 122.438
 custom_fonts/font = ExtResource( 9 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
