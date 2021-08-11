@@ -1,12 +1,12 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://characters/aliens/alien_pink.tscn" type="PackedScene" id=2]
 [ext_resource path="res://audio/digital_sfx/source/phaseJump1.ogg" type="AudioStream" id=3]
 [ext_resource path="res://characters/enemies/bee.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tilesets/abstract_tileset.tres" type="TileSet" id=5]
-[ext_resource path="res://items/coinGold.png" type="Texture" id=6]
-[ext_resource path="res://audio/digital_sfx/source/powerUp5.ogg" type="AudioStream" id=7]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://coin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://HUD.gd" type="Script" id=8]
 [ext_resource path="res://interface/fonts/kenvector_future_32.tres" type="DynamicFont" id=9]
 [ext_resource path="res://backgrounds/backgroundColorGrass.png" type="Texture" id=10]
@@ -19,12 +19,6 @@ audio_stream = ExtResource( 3 )
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 23.984
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 17.5672
-
-[sub_resource type="AudioStreamRandomPitch" id=5]
-audio_stream = ExtResource( 7 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 150, 100 )
@@ -51,7 +45,6 @@ __meta__ = {
 }
 
 [node name="alien_pink" parent="player" instance=ExtResource( 2 )]
-frame = 1
 playing = true
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="player"]
@@ -87,24 +80,34 @@ tile_data = PoolIntArray( -1966052, 0, 0, -1900516, 0, 0, -1834980, 0, 0, -17694
 
 [node name="coins" type="Node2D" parent="."]
 
-[node name="coin" type="Area2D" parent="coins"]
-position = Vector2( 370, 280 )
-collision_layer = 4
-__meta__ = {
-"_edit_group_": true
-}
+[node name="coin" parent="coins" instance=ExtResource( 7 )]
 
-[node name="coinGold" type="Sprite" parent="coins/coin"]
-position = Vector2( 0.0842285, -0.383606 )
-texture = ExtResource( 6 )
+[node name="coin2" parent="coins" instance=ExtResource( 7 )]
+position = Vector2( 1997.16, 142.156 )
 
-[node name="collision_shape_2d" type="CollisionShape2D" parent="coins/coin"]
-shape = SubResource( 4 )
+[node name="coin3" parent="coins" instance=ExtResource( 7 )]
+position = Vector2( 4277.59, -301.343 )
 
-[node name="powerUp5" type="AudioStreamPlayer" parent="coins/coin"]
-stream = SubResource( 5 )
+[node name="coin4" parent="coins" instance=ExtResource( 7 )]
+position = Vector2( 5086.67, -987.568 )
+
+[node name="coin5" parent="coins" instance=ExtResource( 7 )]
+position = Vector2( 2404.7, -1715.75 )
 
 [node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy" parent="enemies" instance=ExtResource( 6 )]
+position = Vector2( 868.058, -63.1667 )
+
+[node name="enemy2" parent="enemies" instance=ExtResource( 6 )]
+position = Vector2( 1874.77, -50.6942 )
+direction = Vector2( 0, 0 )
+
+[node name="enemy3" parent="enemies" instance=ExtResource( 6 )]
+position = Vector2( 2407.53, -93.4572 )
+
+[node name="enemy4" parent="enemies" instance=ExtResource( 6 )]
+position = Vector2( 1856.96, 163.122 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 8 )
@@ -210,7 +213,6 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "JUMP"
 
-[connection signal="body_entered" from="coins/coin" to="coins/coin" method="_on_coin_body_entered"]
 [connection signal="pressed" from="HUD/left_button" to="HUD" method="_on_left_button_pressed"]
 [connection signal="released" from="HUD/left_button" to="HUD" method="_on_left_button_released"]
 [connection signal="pressed" from="HUD/right_button" to="HUD" method="_on_right_button_pressed"]

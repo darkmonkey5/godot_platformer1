@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://characters/enemies/ghost.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy.gd" type="Script" id=2]
+[ext_resource path="res://audio/digital_sfx/source/laser6.ogg" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22.5976, 33.4517 )
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 3 )
+
+[node name="enemy" type="KinematicBody2D"]
+position = Vector2( 2.99664, 0.000244141 )
+script = ExtResource( 2 )
+
+[node name="sprite" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2.28082, -8.90552 )
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="."]
+position = Vector2( 2.59566, -9.20278 )
+shape = SubResource( 1 )
+
+[node name="visibility_enabler_2d" type="VisibilityEnabler2D" parent="."]
+process_parent = true
+physics_process_parent = true
+
+[node name="deathSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 2 )
